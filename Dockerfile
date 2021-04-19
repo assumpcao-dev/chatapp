@@ -2,12 +2,12 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY ./ ./
 
 EXPOSE 3000
 
-CMD ["yarn", "install"]
+CMD ["npm","install"]
