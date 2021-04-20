@@ -1,4 +1,7 @@
+import 'reflect-metadata';
 import express, { Request, Response } from 'express';
+import './database';
+
 import AppError from './shared/errors/AppError';
 import 'dotenv/config';
 
@@ -19,7 +22,6 @@ app.use((error: Error, request: Request, response: Response) => {
     message: 'Internal Server Error',
   });
 });
-
 app.listen(process.env.PORT, () =>
   console.log('Server running on port: ' + process.env.PORT),
 );

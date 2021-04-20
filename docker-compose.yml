@@ -1,9 +1,22 @@
 version: "3"
+networks:
+  app-tier:
+    driver: bridge
 services:
   app:
     build: .
-    command: npm start
     ports:
       - "3000:3000"
+    env_file: .env
+    depends_on: 
+      - db
     volumes:
       - .:/app
+    command: npm start
+  db:
+    image: bitnami/postgresql:latest
+    env_file: .env
+    networks:
+      - app-tier
+    ports:
+    - "2222:5432"

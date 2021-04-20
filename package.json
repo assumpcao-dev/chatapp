@@ -5,13 +5,18 @@
   "license": "MIT",
   "scripts": {
     "start": "tsnd --inspect --transpile-only --ignore-watch node_modules src/app.ts",
+    "typeorm": "tsnd ./node_modules/typeorm/cli.js",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
   },
   "dependencies": {
     "@types/express": "^4.17.11",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.32",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.22.0",
