@@ -4,8 +4,7 @@
   "main": "src/app.ts",
   "license": "MIT",
   "scripts": {
-    "start": "tsnd src/app.ts",
-    "dev": "tsnd --inspect --transpile-only --ignore-watch node_modules src/app.ts",
+    "start": "tsnd --inspect --transpile-only --ignore-watch node_modules src/app.ts",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
   },
