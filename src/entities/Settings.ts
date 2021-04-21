@@ -3,14 +3,13 @@ import {
   CreateDateColumn,
   Entity,
   PrimaryColumn,
-  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 import { v4 as uuid } from 'uuid';
 
 @Entity('settings')
-export default class Seetings {
+class Settings {
   @PrimaryColumn()
   id: string;
 
@@ -32,3 +31,4 @@ export default class Seetings {
     }
   }
 }
+export { Settings };

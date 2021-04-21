@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateSettings1618924960335 implements MigrationInterface {
+export class CreateSettings1618948592634 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -9,9 +9,9 @@ export class CreateSettings1618924960335 implements MigrationInterface {
           {
             name: 'id',
             type: 'uuid',
-            isPrimary: true,
-            generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
+            generationStrategy: 'uuid',
+            isPrimary: true,
           },
           {
             name: 'username',
@@ -20,7 +20,7 @@ export class CreateSettings1618924960335 implements MigrationInterface {
           {
             name: 'chat',
             type: 'boolean',
-            default: true,
+            default: false,
           },
           {
             name: 'created_at',

@@ -2,9 +2,10 @@
   "type": "postgres",
   "host": "localhost",
   "port": "2222",
-  "database": "chatapp",
-  "username": "postgres",
+  "username": "deploy",
   "password": "wqiJeh5a8EuYhb47vH1K0qV9SFGvujoKfKGrO1iJ",
+  "database": "chatapp",
+  "entities": ["./src/entities/**.ts"],
   "migrations": [
     "./src/database/migrations/**.ts"
   ],
