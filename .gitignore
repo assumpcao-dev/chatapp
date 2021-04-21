@@ -6,3 +6,4 @@ temp/
 coverage
 dist
 uploads/*
+ormconfig.json
