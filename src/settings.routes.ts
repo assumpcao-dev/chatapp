@@ -1,9 +1,10 @@
 import Router from 'express';
 import { celebrate, Joi, Segments } from 'celebrate';
 import SettingsController from './controllers/SettingsController';
+
 const routes = Router();
 
-const settingsService = new SettingsController();
+const settingsController = new SettingsController();
 
 routes.post(
   '/settings',
@@ -13,7 +14,7 @@ routes.post(
       username: Joi.string().required(),
     },
   }),
-  settingsService.create,
+  settingsController.create,
 );
 
 export { routes };

@@ -11,6 +11,7 @@ export default class SettingsController {
       username,
       chat,
     });
+
     return response.json(settings);
   }
 }

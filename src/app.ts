@@ -1,16 +1,22 @@
 import 'reflect-metadata';
-import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
-// import { errors } from 'celebrate';
+import express, { NextFunction, Request, Response } from 'express';
+import { errors } from 'celebrate';
+import cors from 'cors';
+
 import 'dotenv/config';
 import './database';
-import AppError from './shared/errors/AppError';
-
+import { AppError } from './shared/errors/AppError';
 import { routes } from './settings.routes';
+import { userRoutes } from './user.routes';
+
 const app = express();
+app.use(cors());
 app.use(express.json());
+app.use(errors());
 
 app.use(routes);
+app.use(userRoutes);
 
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {
@@ -20,6 +26,8 @@ app.use(
         message: error.message,
       });
     }
+    console.log(error);
+
     return response.status(500).json({
       status: 'error',
       message: 'Internal Server Error',
