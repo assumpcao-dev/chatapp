@@ -9,6 +9,7 @@ import './database';
 import { AppError } from './shared/errors/AppError';
 import { routes } from './settings.routes';
 import { userRoutes } from './user.routes';
+import { messageRouter } from './message.routes';
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,7 @@ app.use(errors());
 
 app.use(routes);
 app.use(userRoutes);
+app.use(messageRouter);
 
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {

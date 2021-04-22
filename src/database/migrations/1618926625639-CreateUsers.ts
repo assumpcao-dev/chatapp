@@ -28,6 +28,16 @@ export class CreateUsers1618926625639 implements MigrationInterface {
             default: 'now()',
           },
         ],
+        foreignKeys: [
+          {
+            name: 'fkuser',
+            referencedTableName: 'users',
+            referencedColumnNames: ['id'],
+            columnNames: ['user_id'],
+            onDelete: 'SET NULL',
+            onUpdate: 'SET NULL',
+          },
+        ],
       }),
     );
   }
