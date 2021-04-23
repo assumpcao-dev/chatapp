@@ -20,7 +20,7 @@ app.set('views', path.join(__dirname, '..', 'public'));
 // app.engine('html', require('ejs').renderFile);
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 
 const http = createServer(app);
 const io = new Server(http);

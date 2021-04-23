@@ -1,4 +1,4 @@
-import { getCustomRepository, Repository } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 import Settings from '../entities/Settings';
 import SettingsRepository from '../repositories/SettingsRepository';
 import { AppError } from '../shared/errors/AppError';
@@ -8,13 +8,14 @@ interface IRequest {
   chat: boolean;
 }
 export default class CreateSettingsService {
-  private settingsRepository: Repository<Settings>;
+  private settingsRepository: SettingsRepository;
 
   constructor() {
     this.settingsRepository = getCustomRepository(SettingsRepository);
   }
-  public async execute({ username, chat }: IRequest): Promise<Settings> {
-    const userNameExists = await this.settingsRepository.findOne({
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  public async execute({ username, chat }: IRequest) {
+    const userNameExists = this.settingsRepository.findOne({
       username,
     });
 
@@ -31,7 +32,7 @@ export default class CreateSettingsService {
   }
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async findByUserName(username: string) {
-    const settings = await this.settingsRepository.findOne({
+    const settings = this.settingsRepository.findOne({
       username,
     });
 
@@ -45,9 +46,7 @@ export default class CreateSettingsService {
       .set({
         chat,
       })
-      .where('username = :username', {
-        username,
-      })
+      .where('username = :username', { username })
       .execute();
   }
 }

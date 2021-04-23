@@ -1,28 +1,22 @@
-import { getCustomRepository, Repository } from 'typeorm';
-import { Connection } from '../entities/Connection';
+import { getCustomRepository } from 'typeorm';
 import { ConnectionsRepository } from '../repositories/ConnectionsRepository';
 
 interface IConnectionCreate {
-  socket_id?: string;
+  socket_id: string;
   user_id: string;
   admin_id?: string;
   id?: string;
 }
 
 class ConnectionsService {
-  private connectionsRepository: Repository<Connection>;
+  private connectionsRepository: ConnectionsRepository;
 
   constructor() {
     this.connectionsRepository = getCustomRepository(ConnectionsRepository);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async create({
-    socket_id,
-    admin_id,
-    user_id,
-    id,
-  }: IConnectionCreate): Promise<Connection> {
+  async create({ socket_id, admin_id, user_id, id }: IConnectionCreate) {
     const connection = this.connectionsRepository.create({
       socket_id,
       admin_id,
@@ -31,10 +25,10 @@ class ConnectionsService {
     });
 
     await this.connectionsRepository.save(connection);
-    return connection;
   }
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async findByUserId(user_id: string) {
-    const connection = await this.connectionsRepository.findOne({
+    const connection = this.connectionsRepository.findOne({
       user_id,
     });
 

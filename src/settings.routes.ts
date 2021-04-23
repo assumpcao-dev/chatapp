@@ -17,7 +17,7 @@ routes.post(
   settingsController.create,
 );
 
-routes.post('/settings/:username', settingsController.findByUseName);
-
+routes.get('/settings/:username', settingsController.findByUseName);
 routes.put('/settings/:username', settingsController.update);
+
 export { routes };

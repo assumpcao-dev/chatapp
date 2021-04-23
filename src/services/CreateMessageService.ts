@@ -1,5 +1,4 @@
-import { getCustomRepository, Repository } from 'typeorm';
-import { Message } from '../entities/Message';
+import { getCustomRepository } from 'typeorm';
 import { MessageRepository } from '../repositories/MessageRepository';
 
 interface IRequest {
@@ -8,12 +7,13 @@ interface IRequest {
   user_id: string;
 }
 class CreateMessageService {
-  private messagesRepository: Repository<Message>;
+  private messagesRepository: MessageRepository;
 
   constructor() {
     this.messagesRepository = getCustomRepository(MessageRepository);
   }
-  async create({ admin_id, text, user_id }: IRequest): Promise<Message> {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async create({ admin_id, text, user_id }: IRequest) {
     const message = this.messagesRepository.create({
       admin_id,
       text,

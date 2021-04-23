@@ -1,13 +1,13 @@
-import { getCustomRepository, Repository } from 'typeorm';
-import { Message } from '../entities/Message';
+import { getCustomRepository } from 'typeorm';
 import { MessageRepository } from '../repositories/MessageRepository';
 
 class ListMessageService {
-  private messageRepository: Repository<Message>;
+  private messageRepository: MessageRepository;
   constructor() {
     this.messageRepository = getCustomRepository(MessageRepository);
   }
-  async listByUser(user_id: string): Promise<Message[]> {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async listByUser(user_id: string) {
     const list = this.messageRepository.find({
       where: { user_id },
       relations: ['user'],

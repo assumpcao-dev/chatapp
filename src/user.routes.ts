@@ -5,14 +5,6 @@ import { UserController } from './controllers/UserController';
 
 const usersController = new UserController();
 
-userRoutes.post(
-  '/users',
-  celebrate({
-    [Segments.BODY]: {
-      email: Joi.string().email().required(),
-    },
-  }),
-  usersController.create,
-);
+userRoutes.post('/users', usersController.create);
 
 export { userRoutes };
