@@ -1,4 +1,4 @@
-# ChatApp 
+# :speech_balloon: ChatApp Project :ghost: 
 ## App Project Nlw5 - Rocketseat.
 
 
@@ -9,6 +9,8 @@ Technologies that i used to develop this Chatapp
 • Node.Js
 
 • Typescript
+
+• Docker
 
 • Express
 
