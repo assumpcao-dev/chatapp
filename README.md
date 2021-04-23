@@ -1,12 +1,74 @@
-# chatapp WebApp :rocket:
-## Widget - App Backend :smile:
-Cadastro cliente com mensagem inicial padrão.
-Cadastro de multiplos clientes.
-Armazenamento do histórico de conversas com Banco de Dados.
+# ChatApp Application Project NLW5
 
-Recursos que são utilizados:
-WebSocket.io
-Typescript
-Express
-Docker
-dotenv 
+
+# :rocket: Tecnologies
+
+Technologies that i used to develop this Chatapp
+
+• Node.Js
+
+• Typescript
+
+• Express
+
+• WebSocket
+
+• Ejs
+
+• Typeorm
+
+• Postgres
+
+• Uuid
+
+• Celebrate
+
+• Eslint
+
+• Prettier
+
+• EditorConfig
+
+
+# :computer: Getting Started
+
+# Requirements
+ • Have this application API running on your local machine.
+
+Clone the project and access the folder
+
+```
+$ git clone https://github.com/assumpcao-dev/chatapp && cd chatapp
+
+```
+Follow the steps below
+``` 
+# Install the dependencies
+$ yarn
+
+# Create and be sure the file ormconfig.json have your config database
+
+$ touch ormconfig.json
+
+```
+
+# Running this app with Docker :docker:
+
+Clone the project and access the folder
+
+```
+$ git clone https://github.com/assumpcao-dev/chatapp && cd chatapp
+
+```
+Follow the steps below
+``` 
+# Create the file ormconfig.json on the root of project '/'  
+
+$ touch ormconfig.json
+
+# Run the docker command
+
+$ docker run -p 3000:3000 -d(nameofcontainer)
+
+```
+
