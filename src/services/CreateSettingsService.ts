@@ -29,4 +29,25 @@ export default class CreateSettingsService {
 
     return settings;
   }
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async findByUserName(username: string) {
+    const settings = await this.settingsRepository.findOne({
+      username,
+    });
+
+    return settings;
+  }
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async update(username: string, chat: boolean) {
+    await this.settingsRepository
+      .createQueryBuilder()
+      .update(Settings)
+      .set({
+        chat,
+      })
+      .where('username = :username', {
+        username,
+      })
+      .execute();
+  }
 }

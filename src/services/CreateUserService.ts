@@ -25,6 +25,16 @@ class UserService {
 
     return user;
   }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async findByEmail(email: string) {
+    return this.usersRepository.findOne({ email });
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async findByUserId(user_id: string) {
+    return this.usersRepository.findOne(user_id);
+  }
 }
 
 export { UserService };
