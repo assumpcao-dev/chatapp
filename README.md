@@ -1,7 +1,8 @@
-# ChatApp Application Project NLW5
+# ChatApp 
+## App Project Nlw5 - Rocketseat.
 
 
-# :rocket: Tecnologies
+# :rocket: Technologies
 
 Technologies that i used to develop this Chatapp
 
@@ -30,9 +31,9 @@ Technologies that i used to develop this Chatapp
 • EditorConfig
 
 
-# :computer: Getting Started
+# :computer:   Getting Started
 
-# Requirements
+# • Requirements
  • Have this application API running on your local machine.
 
 Clone the project and access the folder
@@ -52,7 +53,7 @@ $ touch ormconfig.json
 
 ```
 
-# Running this app with Docker :docker:
+# Running this app with Docker :purple_heart:
 
 Clone the project and access the folder
 
